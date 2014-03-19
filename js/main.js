@@ -51,10 +51,13 @@ function get_member_stories(person_id, sync_function) {
         {'token': token,
             'query':
                 'owner:' + person_id +
-                ' AND (accepted_since:' + since_date +
+                ' AND (' +
+                    'updated_since:' + since_date +
+                    'accepted_since:' + since_date +
                     ' OR finished_since:' + since_date +
                     ' OR delivered_since:' + since_date +
-                ') OR state:started includedone:true'},
+                    ' OR state:started' +
+                ') includedone:true'},
         function (s) {
             var done_stories = (parseInt(s.stories.total_hits_with_done) - parseInt(s.stories.total_hits)).toString();
             panel_body.append('<div class="done_stories">' + done_stories + ' Stories Done.</div>');
