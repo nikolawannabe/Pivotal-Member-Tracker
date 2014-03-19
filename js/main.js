@@ -47,7 +47,7 @@ function get_member_stories(person_id,sync_function){
   var panel_body = $("#"+person_id).parent().children(".panel-body"); 
   panel_body.html('<div id="loading'+person_id+'"><center><img src="images/loading.gif"></center></div>')
   $.getJSON('https://www.pivotaltracker.com/services/v5/projects/'+myproject+'/search',
-  {'token':token, 'query':'owner:'+person_id+'%20AND%20accepted_since:03/17/2014%20OR%20finished_since:03/17/2014'},
+  {'token':token, 'query':'owner:'+person_id+' AND accepted_since:03/11/2014 OR finished_since:03/11/2014 OR state:started'},
   function(s){
     var done_stories = (parseInt(s.stories.total_hits_with_done) - parseInt(s.stories.total_hits)).toString();
     panel_body.append('<div class="done_stories">'+ done_stories +' Stories Done.</div>');
