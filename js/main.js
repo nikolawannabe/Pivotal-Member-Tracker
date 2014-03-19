@@ -10,7 +10,6 @@ function get_data(){
   $("#mytable").hide();
   var token = $("#mytoken").val();
   var myproject = $("#myproject").val();
-  var since_date = $("#sincedate").val();
   $( "tr" ).sortable({
                         placeholder: "widget_highlight_placeholder",
                         forcePlaceholderSize: true,
@@ -46,6 +45,7 @@ function get_member_stories(person_id,sync_function){
   var myproject = $("#myproject").val();
   var token = $("#mytoken").val();
   var panel_body = $("#"+person_id).parent().children(".panel-body"); 
+  var since_date = $("#sincedate").val();
   panel_body.html('<div id="loading'+person_id+'"><center><img src="images/loading.gif"></center></div>')
   $.getJSON('https://www.pivotaltracker.com/services/v5/projects/'+myproject+'/search',
   {'token':token, 'query':'owner:'+person_id+' AND accepted_since:'+since_date+' OR finished_since:'+since_date+' OR state:started'},
