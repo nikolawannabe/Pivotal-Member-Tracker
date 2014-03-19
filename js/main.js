@@ -59,8 +59,7 @@ function get_member_stories(person_id, sync_function) {
                     ' OR state:started' +
                 ') includedone:true'},
         function (s) {
-            var done_stories = (parseInt(s.stories.total_hits_with_done) - parseInt(s.stories.total_hits)).toString();
-            panel_body.append('<div class="done_stories">' + done_stories + ' Stories Done.</div>');
+            panel_body.append('<div class="updated_stories">' + s.stories.length() + ' Stories Updated.</div>');
             $.each(s.stories.stories, function (x, y) { // For each Story
                 var story_panel_body = $([
                     '<div data-toggle="tooltip" ',
