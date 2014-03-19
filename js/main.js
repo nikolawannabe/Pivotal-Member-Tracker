@@ -53,7 +53,7 @@ function get_member_stories(person_id, sync_function) {
                 'owner:' + person_id +
                 ' AND (' +
                     'updated_since:' + since_date +
-                    'accepted_since:' + since_date +
+                    ' OR accepted_since:' + since_date +
                     ' OR finished_since:' + since_date +
                     ' OR delivered_since:' + since_date +
                     ' OR state:started' +
